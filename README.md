@@ -1,323 +1,256 @@
-<div align="center" dir="rtl">
+<div align="center">
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Cloudflare-Workers-F38020?style=for-the-badge&logo=cloudflare&logoColor=white" alt="Cloudflare Workers">
-  <img src="https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
-  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
-</p>
+<img src="https://raw.githubusercontent.com/iiviirv/irnova-site/main/brand/nova-logo-gradient.svg" width="70" alt="Nova">
 
-<p align="center">
-  <img src="https://img.shields.io/badge/نسخه-2.0.0-0ea5e9?style=for-the-badge" alt="Version">
-  <img src="https://img.shields.io/badge/آخرین_آپدیت-خرداد_1405-8b5cf6?style=for-the-badge" alt="Last Update">
-  <a href="https://starchart.cc/IRNova/Nova-Proxy">
-    <img src="https://img.shields.io/github/stars/IRNova/Nova-Proxy?style=for-the-badge&color=0ea5e9" alt="Stars">
-  </a>
-  <a href="https://github.com/IRNova/Nova-Proxy/issues">
-    <img src="https://img.shields.io/github/issues/IRNova/Nova-Proxy?style=for-the-badge&color=8b5cf6" alt="Issues">
-  </a>
-</p>
+<div align="right">
+  <a href="README.fa.md">🇮🇷 فارسی</a>
+</div>
 
----
+# Nova Proxy
 
-## ✨ درباره پروژه
+**A personal, censorship-resistant proxy + dashboard on a single Cloudflare Worker.**
 
-پنل پروکسی هوشمند مبتنی بر Cloudflare Workers با قابلیت‌های پیشرفته شامل روتینگ هوشمند، فیلترینگ تبلیغات، مسدودسازی سایت‌های بزرگسال و پشتیبانی کامل از IPv4 و IPv6.
+VLESS · Trojan · Shadowsocks · gRPC · XHTTP over WebSocket + TLS — with a self-contained
+bilingual (English + فارسی) dashboard, per-ISP clean-IP optimization, multi-user
+accounts, a Telegram bot, WARP, proxy chaining, and backend mode. Runs on Cloudflare's **free** tier.
 
-**آدرس پنل:** `/Nova-Proxy`
+[![License](https://img.shields.io/badge/license-MIT-purple?style=for-the-badge)](LICENSE)
+[![Version](https://img.shields.io/badge/version-3.6.3-blueviolet?style=for-the-badge)](https://github.com/IRNova/Nova-Proxy)
+[![Stars](https://img.shields.io/github/stars/IRNova/Nova-Proxy?style=for-the-badge&color=0ea5e9)](https://github.com/IRNova/Nova-Proxy)
+
+</div>
 
 ---
 
-## ⚙️ قابلیت‌های پنل - نسخه 1
+## 🌐 Links
 
-| دسته | قابلیت | وضعیت | توضیحات |
-|------|--------|-------|---------|
-| **🔗 اشتراک‌ها** | Auto | ✅ | دریافت لینک اشتراک خودکار |
-| | Base64 | ✅ | فرمت Base64 |
-| | Clash | ✅ | کلاینت‌های Clash |
-| | SingBox | ✅ | کلاینت‌های SingBox |
-| | Loon | ✅ | کلاینت‌های Loon |
-| | Surge | ✅ | کلاینت‌های Surge |
-| **📊 مدیریت کانفیگ** | نمایش لیست | ✅ | نمایش تمام کانفیگ‌ها |
-| | Load Balancing | ✅ | توزیع بار بین کانفیگ‌ها |
-| | Health Check | ✅ | بررسی سلامت سرورها |
-| | تست پینگ | ✅ | تست سرعت تمام کانفیگ‌ها |
-| | بهترین کانفیگ | ✅ | انتخاب خودکار بهترین گزینه |
-| | QR Code | ✅ | نمایش QR کد برای هر کانفیگ |
-| **🖥️ مدیریت هسته** | پورت‌های CF | ✅ | 443, 2053, 2083, 2087, 2096, 8443 |
-| | لینک Trojan | ✅ | لینک مستقیم Trojan |
-| | لینک Clash | ✅ | لینک Clash |
-| **🔒 پروکسی DoH** | Cloudflare | ✅ | سرعت بالا و امنیت |
-| | Google DNS | ✅ | قابلیت اطمینان |
-| | Quad9 | ✅ | امنیت و حریم خصوصی |
-| | AdGuard | ✅ | مسدودسازی تبلیغات |
-| | ControlD | ✅ | کنترل محتوا |
-| | Mullvad | ✅ | حریم خصوصی |
-| | NextDNS | ✅ | فیلترینگ پیشرفته |
-| | رمزگذاری DNS | ✅ | ترافیک DNS رمزنگاری شده |
-| | Load Balance | ✅ | توازن بار بین ارائه‌دهندگان |
-| | Failover | ✅ | جابجایی خودکار در صورت خطا |
-| | Caching | ✅ | کش پاسخ‌ها برای سرعت بیشتر |
-| **🌍 تنظیمات شبکه** | مسیریابی | ✅ | فعال‌سازی مسیریابی |
-| | GeoIP | ✅ | تشخیص IPهای ایرانی |
-| | GeoSite | ✅ | تشخیص دامنه‌های ایرانی |
-| | Domestic Bypass | ✅ | اتصال مستقیم به سایت‌های ایرانی |
-| | IPv6 | ✅ | پشتیبانی از IPv6 |
-| | Allow LAN | ⛔ | اتصال از شبکه محلی |
-| | Log Level | ✅ | تنظیم سطح لاگ |
-| **🛡️ امنیت** | AdBlock | ✅ | مسدودسازی تبلیغات |
-| | PornBlock | ✅ | مسدودسازی سایت‌های بزرگسال |
-| **🏠 DNS پیشرفته** | Local DNS | ✅ | DNS محلی در worker |
-| | Anti Sanction DNS | ✅ | دور زدن تحریم با DNS |
-| | Fake DNS | ✅ | IP جعلی برای دامنه‌های فیلتر |
-| **🤖 تلگرام** | Notifications | ✅ | دریافت نوتیفیکیشن |
-| | Bot | ✅ | مدیریت از طریق ربات |
-| **🧹 اسکن IP** | Cloudflare IP | ✅ | اسکن IP تمیز Cloudflare |
-| | منابع فعال | ✅ | +9 منبع |
-| | CSV Export | ✅ | خروجی CSV |
-| **🟢 قابلیت‌های اضافی** | ChatGPT | ✅ | پشتیبانی از دامنه ChatGPT |
-| | Backup | ✅ | پشتیبان‌گیری تنظیمات |
-| | ویرایش | ✅ | استفاده تکی از هر کانفیگ |
-| **🚀 تنظیمات پراکسی** | اشتراک برگزیده | ✅ | آدرس دامنه اشتراک |
-| | پراکسی‌آی‌پی | ✅ | تغییر IP خروجی |
-| | SOCKS5 | ✅ | پروکسی SOCKS5 |
-| | SOCKS5 سراسری | ✅ | تمام ترافیک از SOCKS5 |
-| | HTTP | ✅ | پروکسی HTTP |
-| | HTTP سراسری | ✅ | تمام ترافیک از HTTP |
+<div align="center">
+
+[![Website](https://img.shields.io/badge/🌐%20Website-novaproxy.online-0ea5e9?style=for-the-badge)](https://novaproxy.online/)
+[![Telegram Channel](https://img.shields.io/badge/✈️%20Telegram%20Channel-@irnova__proxy-0ea5e9?style=for-the-badge&logo=telegram)](https://t.me/irnova_proxy)
+[![Telegram Group](https://img.shields.io/badge/👥%20Telegram%20Group-@irnovaproxy__group-0ea5e9?style=for-the-badge&logo=telegram)](https://t.me/irnovaproxy_group)
+[![YouTube](https://img.shields.io/badge/▶️%20YouTube-@novaproxyir-ff0000?style=for-the-badge&logo=youtube)](https://www.youtube.com/@novaproxyir)
+[![X (Twitter)](https://img.shields.io/badge/𝕏%20X-@irNovaProxy-000000?style=for-the-badge&logo=x)](https://x.com/irNovaProxy)
+</div>
 
 ---
 
-## 🚀 نسخه 2 - قابلیت‌های جدید
+## 📖 What is Nova Proxy?
 
-| دسته | قابلیت | وضعیت | توضیحات |
-|------|--------|-------|---------|
-| **🔌 پروتکل‌های انتقال** | VLESS + Trojan + Shadowsocks | ✅ | پشتیبانی همزمان از هر سه پروتکل |
-| | gRPC | ✅ | انتقال gRPC با استریم دوطرفه کامل |
-| | XHTTP | ✅ | انتقال XHTTP با پشتیبانی از بارگذاری |
-| | WebSocket Early Data | ✅ | داده اولیه در handshake WS برای کاهش تأخیر |
-| | mux=0 (SS) | ✅ | غیرفعال‌سازی MUX برای Shadowsocks |
-| **🔄 زنجیره پروکسی** | SOCKS5 | ✅ | پروکسی زنجیره‌ای SOCKS5 با احراز هویت |
-| | HTTP/HTTPS CONNECT | ✅ | پروکسی HTTP/HTTPS با احراز هویت Basic |
-| | TURN | ✅ | پروکسی TURN |
-| | SSTP | ✅ | پروکسی SSTP |
-| | SOCKS5 سراسری | ✅ | تمام ترافیک از SOCKS5 |
-| | HTTP سراسری | ✅ | تمام ترافیک از HTTP |
-| | HTTPS سراسری | ✅ | تمام ترافیک از HTTPS |
-| | TURN سراسری | ✅ | تمام ترافیک از TURN |
-| | SSTP سراسری | ✅ | تمام ترافیک از SSTP |
-| | لیست سفید دامنه | ✅ | تعیین دامنه‌های عبوری از پروکسی |
-| **🔐 رمزنگاری Shadowsocks** | AES-128-GCM | ✅ | رمزنگاری استاندارد AES-128-GCM |
-| | AES-256-GCM | ✅ | رمزنگاری استاندارد AES-256-GCM |
-| | تشخیص خودکار | ✅ | تشخیص خودکار روش رمزنگاری از روی داده |
-| | کلید جلسه پویا | ✅ | کلید جلسه مشتق شده از salt |
-| | سازگاری با کلاینت | ✅ | سازگاری با کلاینت‌های استاندارد SS |
-| **🔒 TLS پیشرفته** | TLS 1.3 | ✅ | TLS 1.3 با X25519 و P-256 |
-| | TLS 1.2 | ✅ | TLS 1.2 با ECDHE |
-| | ChaCha20-Poly1305 | ✅ | رمزنگاری ChaCha20-Poly1305 |
-| | AES-GCM | ✅ | رمزنگاری AES-GCM |
-| | ClientHello سفارشی | ✅ | ساخت دستی ClientHello |
-| | ALPN | ✅ | مذاکره پروتکل ALPN |
-| | sni/فراگرگمنت | ✅ | پشتیبانی از fragment برای دور زدن فیلتر |
-| | ECH (Encrypted Client Hello) | ✅ | رمزنگاری SNI با ECH |
-| | Fallback به ChaCha20 | ✅ | بازگشت خودکار در صورت عدم پشتیبانی AES |
-| **📡 اشتراک‌گذاری پیشرفته** | Local Sub Generation | ✅ | تولید اشتراک بدون API خارجی |
-| | Subscriber Userinfo | ✅ | ارسال آمار مصرف در هدر |
-| | SingBox | ✅ | فرمت SingBox/Sing-Box |
-| | Quantumult X | ✅ | فرمت Quantumult X |
-| | Loon | ✅ | فرمت Loon |
-| | Surge | ✅ | فرمت Surge با hotpatch |
-| | Clash/Meta/Mihomo | ✅ | فرمت Clash با hotpatch |
-| | Mixed Auto | ✅ | تشخیص خودکار کلاینت |
-| | Random Path | ✅ | مسیر تصادفی برای ابهام |
-| | Wildcard Host | ✅ | * در hostname برای تصادفی‌سازی |
-| | Chain Proxy در لینک | ✅ | افزودن زنجیره پروکسی به لینک مستقیم |
-| | TLS Fragment | ✅ | پشتیبانی از Shadowrocket/Happ fragment |
-| | ECH در لینک | ✅ | افزودن ECH به لینک اشتراک |
-| **🌐 مدیریت کانفیگ** | کامل پنل ادمین | ✅ | پنل مدیریت کامل راست‌چین فارسی |
-| | Simple Mode | ✅ | حالت ساده برای کاربران عادی |
-| | Advanced Mode | ✅ | حالت پیشرفته با تمام تنظیمات |
-| | Dark Mode | ✅ | تم تاریک کامل |
-| | QR Code | ✅ | تولید QR کد برای هر گره |
-| | Log Viewer | ✅ | مشاهده لاگ درخواست‌ها |
-| | JSON Config Editor | ✅ | ویرایش مستقیم JSON کانفیگ |
-| | Reset Config | ✅ | بازنشانی به تنظیمات پیش‌فرض |
-| **📊 Cloudflare Stats** | Usage Query | ✅ | مشاهده مصرف منابع |
-| | API Token/Key | ✅ | پشتیبانی از API Token و Global Key |
-| | Custom Usage API | ✅ | API سفارشی مصرف |
-| **🧹 بهینه‌سازی IP** | Online Optimize | ✅ | اسکن آنلاین IP در worker |
-| | API Optimize | ✅ | استفاده از API‌های عمومی |
-| | Custom IP List | ✅ | بارگذاری لیست IP دلخواه |
-| | Random IP Generator | ✅ | تولید IP تصادفی |
-| | Result Tabs | ✅ | دسته‌بندی نتایج (تمیز/معمولی/سریع) |
-| | Save/Override | ✅ | ذخیره و جایگزینی نتایج |
-| **🤖 Telegram Bot** | Webhook | ✅ | وب‌هوک تلگرام برای اعلان‌ها |
-| | SetWebhook | ✅ | تنظیم خودکار وب‌هوک |
-| | Bot Config | ✅ | تنظیمات ربات در پنل |
-| **⚡ بهینه‌سازی** | Concurrent TCP Dial | ✅ | اتصال همزمان TCP (۲ مسیره) |
-| | Uplink Coalescing | ✅ | تجمیع بسته‌های خروجی (16KB) |
-| | Downlink Grain | ✅ | تجمیع بسته‌های ورودی (32KB) |
-| | Upload Queue Limit | ✅ | محدودیت صف آپلود (16MB/4096) |
-| | 0-RTT | ✅ | پشتیبانی از 0-RTT |
-| | 0-RTT | ✅ | داده اولیه برای کاهش زمان اتصال |
-| | IP Load Balance | ✅ | انتخاب هوشمند پروکسی‌آی‌پی |
-| | Proxy Fallback | ✅ | بازگشت به مسیر مستقیم در صورت خطا |
-| **🔗 لینک‌های مستقیم** | VLESS | ✅ | لینک مستقیم VLESS |
-| | Trojan | ✅ | لینک مستقیم Trojan |
-| | Shadowsocks | ✅ | لینک مستقیم Shadowsocks با plugin |
-| | Subscription | ✅ | لینک اشتراک با توکن امن |
-| | Full ClipBoard | ✅ | کپی یک‌کلیک تمام لینک‌ها |
-| **📂 فضای ذخیره‌سازی** | KV Config | ✅ | ذخیره config.json در KV |
-| | KV CF Config | ✅ | ذخیره تنظیمات Cloudflare |
-| | KV TG Config | ✅ | ذخیره تنظیمات تلگرام |
-| | KV Custom IPs | ✅ | ذخیره IP‌های سفارشی |
-| | KV Logs | ✅ | ذخیره لاگ درخواست‌ها |
-| **🛡️ امنیت** | Password Login | ✅ | ورود با رمز عبور |
-| | Auth Cookie | ✅ | احراز هویت با Cookie امن |
-| | UUID Validation | ✅ | اعتبارسنجی UUID |
-| | Token Auth | ✅ | احراز هویت اشتراک با توکن MD5 |
-| | Speed Test Block | ✅ | مسدودسازی درخواست‌های speed test |
-| **🔧 متغیرهای محیطی** | ADMIN/PASSWORD | ✅ | رمز عبور اصلی پنل |
-| | UUID | ✅ | شناسه کاربری ثابت |
-| | PROXYIP | ✅ | پروکسی‌آی‌پی خروجی |
-| | SOCKS5/HTTP/HTTPS | ✅ | پروکسی زنجیره‌ای |
-| | HOST | ✅ | هاست‌های مجاز |
-| | KEY | ✅ | کلید رمزنگاری |
-| | KV | ✅ | اتصال فضای ذخیره‌سازی |
-| | DEBUG | ✅ | لاگ خطایابی |
-| | URL | ✅ | آدرس سایت مجازی |
-| | BEST_SUB | ✅ | فعال‌سازی تولیدکننده اشتراک |
-| **📱 پنل کاربری** | راست‌چین فارسی | ✅ | رابط کاربری کاملاً فارسی |
-| | واکنش‌گرا | ✅ | سازگاری با موبایل و تبلت |
-| | Leaflet Map | ✅ | نقشه تعاملی برای مکان پروکسی |
-| | QR Code | ✅ | تولید QR کد داخلی |
-| | Toast Notifications | ✅ | اعلان‌های کشویی |
-| | Modal Windows | ✅ | پنجره‌های مودال |
-| | Collapse Modules | ✅ | ماژول‌های جمع‌شونده |
-| | SVG Icons | ✅ | آیکون‌های Remix SVG |
-| | Copy to Clipboard | ✅ | کپی یک‌کلیک به کلیپ‌بورد |
+Nova Proxy is a **personal, all-in-one censorship-circumvention proxy** that runs entirely on Cloudflare Workers — the **free tier**. It combines a powerful proxy (VLESS, Trojan, Shadowsocks over WebSocket/gRPC/XHTTP) with a **full bilingual admin dashboard**, all in a single deployable Worker.
+
+**What makes Nova different:**
+- ⚡ **Zero infrastructure** — no VPS, no domain needed to start
+- 🌍 **Per-ISP clean-IP** — auto-optimized for each Iranian ISP
+- 👥 **Multi-user** — per-user links with quota, expiry, and on/off control
+- 🤖 **Telegram bot** — full management from Telegram
+- 🔗 **Proxy chaining** — SOCKS5, HTTP, HTTPS, TURN, SSTP
+- 🛡️ **Advanced evasion** — ECH, TLS fragment, 0-RTT, fingerprint
+- 🧩 **Backend mode** — connect to your own Xray/sing-box VPS for VLESS + UDP calls
 
 ---
 
-### 🚀 تنظیمات پراکسی - جزئیات (نسخه 2)
+## ⚡ Quick Install
 
-| آیتم | توضیح | فرمت | مثال |
-|------|-------|------|------|
-| **زنجیره SOCKS5** | پروکسی SOCKS5 با یوزر و پسورد | `socks5://user:pass@host:port` | `socks5://user:pass@127.0.0.1:1080` |
-| **زنجیره HTTP** | پروکسی HTTP با یوزر و پسورد | `http://user:pass@host:port` | `http://user:pass@127.0.0.1:8080` |
-| **زنجیره HTTPS** | پروکسی HTTPS با یوزر و پسورد | `https://user:pass@host:port` | `https://user:pass@127.0.0.1:3128` |
-| **زنجیره TURN** | پروکسی TURN | `turn://user:pass@host:port` | `turn://user:pass@turn.example.com:3478` |
-| **زنجیره SSTP** | پروکسی SSTP | `sstp://user:pass@host:port` | `sstp://user:pass@host:port` |
-| **زنجیره در لینک** | افزودن پروکسی به لینک گره | `$socks5://...` در انتهای IP | `1.2.3.4:443#MyNode $socks5://user:pass@5.6.7.8:1080` |
-| **TLS Fragment** | تکه‌تکه کردن ClientHello | Shadowrocket/Happ | `1,40-60,30-50,tlshello` |
-| **ECH** | رمزنگاری SNI | SNI+DNS | `ech.example.com+dns.example.com` |
-| **0-RTT Early Data** | داده اولیه در handshake | base64 در Sec-WebSocket-Protocol | Auto |
+Choose your preferred method:
 
----
+### 🖥️ Nova Wizard (Desktop)
 
-## 🎨 طرح رنگی
+The official desktop installer with a graphical interface — no technical knowledge required.
 
-| رنگ | کد | کاربرد |
-|-----|-----|--------|
-| 🟦 آبی فیروزه‌ای | `#0ea5e9` | رنگ اصلی، دکمه‌ها، لینک‌ها |
-| 🟪 بنفش ملایم | `#8b5cf6` | رنگ دوم، اکسنت‌ها |
-| ⬜ سفید | `#ffffff` | پس‌زمینه اصلی |
-| 🧱 خاکستری روشن | `#f8fafc` | پس‌زمینه کارت‌ها |
-| ⚫ خاکستری تیره | `#1e293b` | متن اصلی |
+[**→ Download Nova Wizard for Windows & Linux**](https://github.com/IRNova/Nova-Wizard)
+
+### 🌐 Web Installer
+
+Visit the official site and follow the step-by-step guide:
+
+[**→ novaproxy.online/install**](https://novaproxy.online/install)
 
 ---
 
-## 📋 پیش‌نیازها
+### 📱 Mobile
 
-- حساب Cloudflare با Workers و KV Namespace
-- Node.js (نسخه 18+) برای تست محلی
-- Wrangler CLI
-
----
-
-## ⚙️ متغیرهای محیطی
-
-| متغیر | توضیحات | پیش‌فرض |
-|-------|---------|---------|
-| `PASSWORD` | رمز عبور پنل مدیریت | (اجباری) |
-| `UUID` | شناسه کاربری ثابت (فرمت UUID v4) | خودکار از PASSWORD+KEY |
-| `PROXYIP` | آدرس پروکسی خروجی (فرمت host:port) | auto (colo proxyip) |
-| `SOCKS5` | پروکسی زنجیره‌ای SOCKS5 | - |
-| `HTTP` | پروکسی زنجیره‌ای HTTP | - |
-| `HTTPS` | پروکسی زنجیره‌ای HTTPS | - |
-| `TURN` | پروکسی زنجیره‌ای TURN | - |
-| `SSTP` | پروکسی زنجیره‌ای SSTP | - |
-| `HOST` | هاست‌های مجاز (جداسازی با ,) | hostname فعلی |
-| `KEY` | کلید رمزنگاری | `勿动此默认密钥...` |
-| `KV` | فضای ذخیره‌سازی KV | (اجباری) |
-| `GO2SOCKS5` | دامنه‌های اضافی برای SOCKS5 | - |
-| `DEBUG` | فعال‌سازی لاگ خطایابی | `false` |
-| `URL` | آدرس سایت مجاز (mask/decoy) | nginx |
-| `BEST_SUB` | فعال‌سازی تولیدکننده اشتراک | `false` |
-| `ADMIN` | رمز عبور (جایگزین PASSWORD) | - |
+- **Android:** **Radar** — an Android app with a built-in wizard for one-click Nova Proxy installation on Cloudflare. Coming soon.
+- **iOS:** Currently in development.
 
 ---
 
-## 📊 آمار
+## 🛰 Backend Mode (VLESS + Voice/Video Calls)
 
-| آیتم | تعداد |
-|------|-------|
-| ⭐ ستاره‌ها | [Star Chart](https://starchart.cc/IRNova/Nova-Proxy) |
-| 📦 محدوده IP ایران | +1000 CIDR |
-| 🌐 دامنه ایرانی | +100 دامنه |
-| 📢 دامنه تبلیغاتی | +150 دامنه |
-| 🔞 دامنه بزرگسال | +80 دامنه |
-| 🔌 پورت‌های Cloudflare | 443, 2053, 2083, 2087, 2096, 8443 |
-| 🧩 پروتکل‌های انتقال | VLESS, Trojan, Shadowsocks, gRPC, XHTTP |
-| 🔗 زنجیره پروکسی | SOCKS5, HTTP, HTTPS, TURN, SSTP |
-| 🔐 رمزنگاری TLS | AES-GCM, ChaCha20-Poly1305, ECH |
+Cloudflare Workers cannot run native TCP proxy or handle UDP traffic directly. To enable these features, Nova supports **Backend Mode** — forward traffic to your own Xray or sing-box VPS.
+
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/IRNova/Tools/main/nova-backend.sh)
+```
+
+After running the installer, enable Backend Mode in the Nova panel (Network Settings → Backend Mode) and enter your VPS URL.
 
 ---
 
-## 🙏 تشکر
+## 📋 Prerequisites
 
+- A **Cloudflare account** (free) with Workers enabled
+- A **KV namespace** (created automatically by the one-click deploy, or manually via Wrangler)
+- (Optional) Node.js v18+ and Wrangler CLI for local testing
+
+---
+
+## 🧬 Feature Evolution (v1 → v2 → v3)
+
+| Feature | v1 | v2 | v3 |
+|---------|:--:|:--:|:--:|
+| Auto subscription link | ✅ | ✅ | ✅ |
+| Base64 format | ✅ | ✅ | ✅ |
+| Clash / Mihomo | ✅ | ✅ | ✅ |
+| sing-box | ✅ | ✅ | ✅ |
+| Loon | ✅ | ✅ | ✅ |
+| Surge | ✅ | ✅ | ✅ |
+| Load Balancing | ✅ | ✅ | ✅ |
+| Health Check | ✅ | ✅ | ✅ |
+| Ping test | ✅ | ✅ | ✅ |
+| Best config selector | ✅ | ✅ | ✅ |
+| QR Code | ✅ | ✅ | ✅ |
+| Display config list | ✅ | ✅ | ✅ |
+| DoH proxy | ✅ | ✅ | ✅ |
+| DNS encryption | ✅ | ✅ | ✅ |
+| DNS Load Balance / Failover / Caching | ✅ | ✅ | ✅ |
+| Local DNS | ✅ | ✅ | ✅ |
+| Anti Sanction DNS | ✅ | ✅ | ✅ |
+| Fake DNS | ✅ | ✅ | ✅ |
+| Routing / GeoIP / GeoSite | ✅ | ✅ | ✅ |
+| Domestic Bypass | ✅ | ✅ | ✅ |
+| IPv6 support | ✅ | ✅ | ✅ |
+| AdBlock / PornBlock | ✅ | ✅ | ✅ |
+| Cloudflare ports | ✅ | ✅ | ✅ |
+| Trojan direct link | ✅ | ✅ | ✅ |
+| Clash direct link | ✅ | ✅ | ✅ |
+| Global SOCKS5 mode | ✅ | ✅ | ✅ |
+| Global HTTP mode | ✅ | ✅ | ✅ |
+| Clean Cloudflare IP scanner | ✅ | ✅ | ✅ |
+| Telegram notifications | ✅ | ✅ | ✅ |
+| Telegram bot management | ✅ | ✅ | ✅ |
+| Quantumult X | ➖ | ✅ | ✅ |
+| Mixed Auto (client detection) | ➖ | ✅ | ✅ |
+| Random Path / Wildcard Host | ➖ | ✅ | ✅ |
+| Admin dashboard (RTL Persian) | ➖ | ✅ | ✅ |
+| Simple / Advanced mode | ➖ | ✅ | ✅ |
+| Dark mode | ➖ | ✅ | ✅ |
+| JSON Config Editor | ➖ | ✅ | ✅ |
+| Log Viewer | ➖ | ✅ | ✅ |
+| Reset config | ➖ | ✅ | ✅ |
+| VLESS / Trojan / Shadowsocks | ➖ | ✅ | ✅ |
+| gRPC / XHTTP transport | ➖ | ✅ | ✅ |
+| WebSocket Early Data | ➖ | ✅ | ✅ |
+| mux=0 for Shadowsocks | ➖ | ✅ | ✅ |
+| SOCKS5 chain | ➖ | ✅ | ✅ |
+| HTTP/HTTPS CONNECT chain | ➖ | ✅ | ✅ |
+| TURN / SSTP chain | ➖ | ✅ | ✅ |
+| Global HTTPS / TURN / SSTP mode | ➖ | ✅ | ✅ |
+| Whitelist domains | ➖ | ✅ | ✅ |
+| Chain in subscription link | ➖ | ✅ | ✅ |
+| TLS 1.3 / 1.2 | ➖ | ✅ | ✅ |
+| ChaCha20-Poly1305 / AES-GCM | ➖ | ✅ | ✅ |
+| Custom ClientHello / ALPN | ➖ | ✅ | ✅ |
+| SNI fragment / TLS fragment | ➖ | ✅ | ✅ |
+| Fallback to ChaCha20 | ➖ | ✅ | ✅ |
+| AES-128/256-GCM (Shadowsocks) | ➖ | ✅ | ✅ |
+| Auto detection / Dynamic session key | ➖ | ✅ | ✅ |
+| Online / API optimize, Custom IP list | ➖ | ✅ | ✅ |
+| Random IP generator / Result tabs | ➖ | ✅ | ✅ |
+| Save/Override results | ➖ | ✅ | ✅ |
+| Per-ISP clean-IP optimization | ➖ | ✅ | ✅ |
+| Telegram Webhook / Bot config in panel | ➖ | ✅ | ✅ |
+| Cloudflare Usage Query / API Token | ➖ | ✅ | ✅ |
+| Custom Usage API | ➖ | ✅ | ✅ |
+| VLESS / Shadowsocks direct link | ➖ | ✅ | ✅ |
+| Subscription with token | ➖ | ✅ | ✅ |
+| Full clipboard copy | ➖ | ✅ | ✅ |
+| KV storage (Config, CF, TG, IPs, Logs) | ➖ | ✅ | ✅ |
+| Password login / Auth Cookie | ➖ | ✅ | ✅ |
+| UUID validation / Token auth (MD5) | ➖ | ✅ | ✅ |
+| Speed test block | ➖ | ✅ | ✅ |
+| Environment variables | ➖ | ✅ | ✅ |
+| Persian RTL / Responsive panel | ➖ | ✅ | ✅ |
+| Leaflet map / Toast / Modal | ➖ | ✅ | ✅ |
+| Collapse modules / SVG icons | ➖ | ✅ | ✅ |
+| Copy to clipboard | ➖ | ✅ | ✅ |
+| Concurrent TCP dial / 0-RTT | ➖ | ✅ | ✅ |
+| Uplink coalescing / Downlink grain | ➖ | ✅ | ✅ |
+| Upload queue limit | ➖ | ✅ | ✅ |
+| IP Load Balance / Proxy Fallback | ➖ | ✅ | ✅ |
+| Tokenless format-named sub links | ➖ | ➖ | ✅ |
+| Permanent GitHub sub-mirror | ➖ | ➖ | ✅ |
+| Bundled dashboard (Static Assets) | ➖ | ➖ | ✅ |
+| Bilingual EN + FA UI + guided tour | ➖ | ➖ | ✅ |
+| Malware / Phishing / Cryptominers blocking | ➖ | ➖ | ✅ |
+| QUIC blocking | ➖ | ➖ | ✅ |
+| Backend mode (VLESS + UDP / voice-video calls) | ➖ | ➖ | ✅ |
+| ECH (Encrypted Client Hello) | ➖ | ➖ | ✅ |
+| Port-spread / Multi-transport | ➖ | ➖ | ✅ |
+| Telegram auto-announce domain updates | ➖ | ➖ | ✅ |
+| Daily traffic chart + upload/download split | ➖ | ➖ | ✅ |
+| Per-user link + total/daily quota + expiry + on/off + auto-disable | ➖ | ➖ | ✅ |
+| Per-user sub link with username + secret key authentication | ➖ | ➖ | ✅ |
+| Read-after-write KV cache for instant user config propagation | ➖ | ➖ | ✅ |
+| NAT64 / IPv6 transition support | ➖ | ➖ | ✅ |
+| Panel password change + 2FA (TOTP) + recovery | ➖ | ➖ | ✅ |
+| Login rate limiting + session management | ➖ | ➖ | ✅ |
+| WARP account register + WARP+ license + WoW | ➖ | ➖ | ✅ |
+| WARP endpoint switcher + Iran-friendly endpoints | ➖ | ➖ | ✅ |
+| WARP Amnezia mode + WARP Noise | ➖ | ➖ | ✅ |
+| One-tap Iran mode + live config report | ➖ | ➖ | ✅ |
+| Backup & Restore (export/import all settings) | ➖ | ➖ | ✅ |
+| Cross-infra fallback (non-CF nodes) | ➖ | ➖ | ✅ |
+| Self-healing domain pool + health checking | ➖ | ➖ | ✅ |
+| Bypass countries (China, Russia, sanctions) | ➖ | ➖ | ✅ |
+| Custom routing rules | ➖ | ➖ | ✅ |
+| Central management API + fleet stats + broadcast | ➖ | ➖ | ✅ |
+| Kill switch (global pause/resume) | ➖ | ➖ | ✅ |
+| Instance heartbeat + announcement system | ➖ | ➖ | ✅ |
+| D1 database support (KV migration) | ➖ | ➖ | ✅ |
+| /install wizard + one-click Deploy to Cloudflare | ➖ | ➖ | ✅ |
+
+---
+
+## 💜 Support
+
+If Nova helps you, please **⭐ star the repo** and consider a small donation — it keeps the project alive and free for everyone.
+
+<div align="center">
+
+### ⭐ [Star Nova on GitHub](https://github.com/IRNova/Nova-Proxy) ⭐
+
+[![Star on GitHub](https://img.shields.io/github/stars/IRNova/Nova-Proxy?style=for-the-badge&logo=github&label=Star%20Nova&color=8957e5)](https://github.com/IRNova/Nova-Proxy)
+
+| Coin | Address |
+|------|---------|
+| **TON** | `UQD51lGC35rP_SbVYgbFA7CEEii4GVMFgqj4N8fiGi6m425w` |
+
+</div>
+
+---
+
+## 🙏 Credits
+
+Built with ❤️ for a free and open internet.
+
+- [@iiviirv](https://github.com/iiviirv) — contributor
 - [Cloudflare Workers](https://workers.cloudflare.com/)
 - [Xray-core](https://github.com/XTLS/xray-core)
 
 ---
 
+## License
+
+MIT — see the [LICENSE](LICENSE) file.
+
 ---
 
 <div align="center">
-  <h3>حمایت از پروژه</h3>
-  <p>از اینجا مارو با دونیت کردن حمایت کنید</p>
-  <p><a href="https://daramet.com/NovaPr" target="_blank">🔗 https://daramet.com/NovaPr</a></p>
-  <hr>
-  <h4>کیف پول‌ها</h4>
-  <p><strong>BTC:</strong></p>
-  <pre><code>bc1qc54su3gz20ulq8df7k0pcskk4zz4sy0e7z7hws</code></pre>
-  <p><strong>TON:</strong></p>
-  <pre><code>UQD51lGC35rP_SbVYgbFA7CEEii4GVMFgqj4N8fiGi6m425w</code></pre>
-</div>
 
----
-## 📞 ارتباط
+Made for Iran 🇮🇷 — and anyone who needs a free, open internet.
+**Nothing about your traffic is logged. The proxy is yours.**
 
-<p align="center">
-  <a href="https://github.com/IRNova/Nova-Proxy">
-    <img src="https://img.shields.io/badge/GitHub-گیتهاب-0ea5e9?style=for-the-badge&logo=github" alt="GitHub">
-  </a>
-  <a href="https://t.me/irnova_proxy">
-    <img src="https://img.shields.io/badge/Telegram-تلگرام-0ea5e9?style=for-the-badge&logo=telegram" alt="Telegram Channel">
-  </a>
-</p>
-
-<p align="center">
-  برای دیدن آخرین تغییرات و پروژه‌های بیشتر حتماً عضو کانال ما شوید
-</p>
-
----
-
-<p align="center">
-  <strong>نسخه 2.0.0 - در حال توسعه | با ❤️ برای جامعه ایران</strong>
-</p>
-
----
-
-## Stargazers over time
-[![Stargazers over time](https://starchart.cc/IRNova/Nova-Proxy.svg?variant=adaptive)](https://starchart.cc/IRNova/Nova-Proxy)
+📖 [Persian version](README.fa.md)
 
 </div>
